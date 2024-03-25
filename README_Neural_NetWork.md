@@ -26,7 +26,7 @@ You can install these dependencies using pip and follow theses steps for runing:
 pip install numpy matplotlib
 
 # Clone the repository
-git clone https://github.com/your-username/neural-network-from-scratch.git
+git clone https://github.com/hmakumbu/models_basics.git
 
 # Navigate to the repository directory:
 cd neural-network-from-scratch
