@@ -100,35 +100,14 @@ def backward_pass(X,Y, A2, Z2, A1, Z1, W1, W2, b1, b2):
   m = len(Y)
   # Your code here
   dZ2 = A2-Y
-  dW2 = 1/m*dZ2.dot(A1.T)
-  db2 = 1/m*np.sum(dZ2, axis=1, keepdims=True)
+  dW2 = (1/m)*dZ2.dot(A1.T)
+  db2 = (1/m)*np.sum(dZ2, axis=1, keepdims=True)
   dZ1 = (W2.T.dot(dZ2))*d_sigmoid(Z1)
-  dW1 = 1/m*dZ1.dot(X.T)
-  db1 = 1/m*np.sum(dZ1, axis=1, keepdims=True)
+  dW1 = (1/m)*dZ1.dot(X.T)
+  db1 = (1/m)*np.sum(dZ1, axis=1, keepdims=True)
 
 
   return dW1, dW2, db1, db2
-
-import numpy as np
-
-def sigmoid(z):
-    return 1 / (1 + np.exp(-z))
-
-def d_sigmoid(z):
-    return sigmoid(z) * (1 - sigmoid(z))
-
-def backward_pass(X, Y, A2, Z2, A1, Z1, W1, W2, b1, b2):
-    m = len(Y)
-
-    # Calculate gradients
-    dZ2 = A2 - Y
-    dW2 = (1 / m) * np.dot(dZ2, A1.T)
-    db2 = (1 / m) * np.sum(dZ2, axis=1, keepdims=True)
-    dZ1 = np.dot(W2.T, dZ2) * d_sigmoid(Z1)
-    dW1 = (1 / m) * np.dot(dZ1, X.T)
-    db1 = (1 / m) * np.sum(dZ1, axis=1, keepdims=True)
-
-    return dW1, dW2, db1, db2
 
 """## Accuracy"""
 
