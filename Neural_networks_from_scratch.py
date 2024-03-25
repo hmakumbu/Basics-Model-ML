@@ -176,7 +176,7 @@ Y_train.shape[0]
 
 """## Training loop"""
 
-alpha = 0.1
+alpha = 0.01
 W1, W2, b1, b2 = init_params(X_train.shape[0], 10, Y_train.shape[0])
 n_epochs = 10000
 train_loss = []
